@@ -36,7 +36,7 @@ module.exports = {
       "ref"  : "origin/master",
       "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
       "path" : "/var/dev/onlypm2/",
-      "pre-setup":"sudo chmod +755 /var/ /usr/local/lib/ /usr/local/bin/",
+      "pre-setup":"sudo chmod +777 /var/",
       "post-setup":"node --version && npm --version && pm2 --version && npm install",
       "post-deploy" : "npm run pm2-dev-start"
     }
