@@ -3,7 +3,7 @@ import express from 'express';
 const app=express();
 
 app.get('/',(req,res,next)=>{
-    res.status(200).send(`Welcome to Express Application in ${process.env.APP_ENV} environment on port ${process.env.PORT}`);
+    res.status(200).send(`Welcome to the Node Express Application in ${process.env.APP_ENV} environment on port ${process.env.PORT}`);
 })
 
 
