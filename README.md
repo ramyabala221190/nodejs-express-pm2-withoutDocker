@@ -57,11 +57,42 @@ We are executing the dotenv command here so that no dotenv code is required the 
 
 5. Finally, in the package.json, we are running the application using the pm2 commands.
 
- "pm2-dev": "pm2 start ecosystem.config.cjs --env development",
-"pm2-prod": "pm2 start ecosystem.config.cjs --env production"
+ "pm2-dev-local": "pm2 start ecosystem.config.cjs --env development",
+"pm2-prod-local": "pm2 start ecosystem.config.cjs --env production"
 
-Although I have defined 2 seperate commands, just 1 command is sufficient, where the
-target environment can be fetched from any environment variable set in the pipeline.
-The target environment passed to --env flag decides which environment is selected in the ecosystem.config.cjs file.
+6. You can deploy the app via pm2 only from git bash otherwise you will get the below error:
 
-"start":"pm2 start ecosystem.config.cjs --env ${env}"
+![Alt text](image.png)
+
+So open git bash, navogate to root of project and execute the below commands to deploy to development
+and production respectively
+
+pm2 deploy ecosystem.config.cjs development update
+pm2 deploy ecosystem.config.cjs production update
+
+7. Before deployment ensure, you have Node and npm installed on the remote server. If its a linux server,
+login into the server via cmd
+
+ssh asureuser22@4.201.137.36
+
+execute the below commands:
+
+
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm
+
+8.Ensure you have given chmod 777 access to the below directories before deployment because you
+are deployling inside /var and other 2 folder also need to modified internally.
+
+azureuser22@ramyaVM:/$ sudo chmod +777 /var/
+azureuser22@ramyaVM:/$ sudo chmod +777 /usr/local/lib/
+azureuser22@ramyaVM:/$ sudo chmod +777 /usr/local/bin/
+
+9. 
+pm2 takes care of connecting to the remote server, pulling the code from repo and then executing
+the "post-deploy" code for installation and running the app.
+
+10. Note that since .env files are not pushed into the repository, they wont be there when cloned into
+remote server. Hence .env files are only for local use.
+When deploying the app, the environment variables need to be configured on the remote server.
