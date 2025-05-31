@@ -77,7 +77,6 @@ ssh asureuser22@4.201.137.36
 
 execute the below commands:
 
-
 sudo apt-get update
 sudo apt-get install nodejs
 sudo apt-get install npm
@@ -86,6 +85,13 @@ After this, install pm2 globally on the remote server
 
 npm install -g pm2
 
+Ensure you execute the below command next, to ensure that any existing Node processes will start automatically,
+if the remote server shuts down and restarts in the future.
+
+"pm2 startup"
+
+![Alt text](image-1.png)
+
 8.Ensure you have created the folders inside /var/ and given chmod 777 access to the below directories before deployment because you
 are deployling inside /var and other 2 folder also need to modified internally.
 
@@ -93,11 +99,6 @@ azureuser22@ramyaVM:/$ sudo chmod +777 /var/
 azureuser22@ramyaVM:/$ sudo chmod +777 /usr/local/lib/
 azureuser22@ramyaVM:/$ sudo chmod +777 /usr/local/bin/
 
-Create the deployment folders like below. Do similarly for dev/onlypm2
-
-azureuser22@ramyaVM:/var$ sudo mkdir prod
-azureuser22@ramyaVM:/var$ cd prod
-azureuser22@ramyaVM:/var/prod$ sudo mkdir onlypm2
 
 9. 
 pm2 takes care of connecting to the remote server, pulling the code from repo and then executing
