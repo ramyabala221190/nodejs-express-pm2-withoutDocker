@@ -8,10 +8,14 @@ module.exports = {
       NODE_ENV:'production'
     },
     env_development:{
-      DOTENV_CONFIG_PATH:'.env.development'
+      DOTENV_CONFIG_PATH:'.env.development',
+      PORT:3000,
+      APP_ENV:'development'
     },
     env_production:{
-      DOTENV_CONFIG_PATH:'.env.production'
+      DOTENV_CONFIG_PATH:'.env.production',
+      PORT:8080,
+      APP_ENV:'production'
     },
     node_args:`-r dotenv/config`
   },],
@@ -22,7 +26,8 @@ module.exports = {
        "ref"  : "origin/master",
        "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
        "path" : "/var/prod/onlypm2/",
-       "post-deploy" : "npm install && npm install -g pm2 && npm run pm2-prod-start"
+       "post-setup":"node --version && npm --version && pm2 --version && npm install",
+       "post-deploy" : "npm run pm2-prod-start"
     },
     development:{
       "user" : "azureuser22",
@@ -30,7 +35,8 @@ module.exports = {
       "ref"  : "origin/master",
       "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
       "path" : "/var/dev/onlypm2/",
-      "post-deploy" : "npm install && npm install -g pm2 && npm run pm2-dev-start"
+      "post-setup":"node --version && npm --version && pm2 --version && npm install",
+      "post-deploy" : "npm run pm2-dev-start"
     }
   }
 };

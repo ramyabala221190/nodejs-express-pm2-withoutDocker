@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pm2-dev-start": "pm2 reload ecosystem.config.cjs --env development",
-    "pm2-prod-start": "pm2 reload ecosystem.config.cjs --env production",
+    "pm2-dev-start": "pm2 startOrReload ecosystem.config.cjs --env development",
+    "pm2-prod-start": "pm2 startOrReload ecosystem.config.cjs --env production",
     "pm2-prod-deploy":"pm2 deploy ecosystem.config.cjs production update",
     "pm2-dev-deploy":"pm2 deploy ecosystem.config.cjs development update"
   },

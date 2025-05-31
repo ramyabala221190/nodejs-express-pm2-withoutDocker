@@ -82,6 +82,10 @@ sudo apt-get update
 sudo apt-get install nodejs
 sudo apt-get install npm
 
+After this, install pm2 globally on the remote server
+
+npm install -g pm2
+
 8.Ensure you have given chmod 777 access to the below directories before deployment because you
 are deployling inside /var and other 2 folder also need to modified internally.
 
