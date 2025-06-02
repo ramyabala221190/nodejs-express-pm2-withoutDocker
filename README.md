@@ -59,15 +59,6 @@ We are executing the dotenv command here so that no dotenv code is required the 
    "pm2-dev-start": "pm2 startOrReload ecosystem.config.cjs --env development",
     "pm2-prod-start": "pm2 startOrReload ecosystem.config.cjs --env production",
 
-6. You can deploy the app via pm2 only from git bash otherwise you will get the below error:
-
-![Alt text](image.png)
-
-So open git bash, navogate to root of project and execute the below commands to deploy to development
-and production respectively
-
-pm2 deploy ecosystem.config.cjs development update
-pm2 deploy ecosystem.config.cjs production update
 
 7. Before deployment ensure, you have Node and npm installed on the remote server. If its a linux server,
 login into the server via cmd
@@ -97,16 +88,11 @@ pm2 startup
 
 ![Alt text](image-1.png)
 
-8.Ensure you have created the folders inside /var/ and given chmod 777 access to the below directories before deployment because you
-are deployling inside /var and other 2 folder also need to modified internally.
+9.
+You can deploy the app via pm2 only from git bash otherwise you will get the below error:
 
-azureuser22@ramyaVM:~$ sudo usermod -g root azureuser22
-azureuser22@ramyaVM:/$ sudo chmod +777 /usr/local/lib/
-azureuser22@ramyaVM:/$ 
+![Alt text](image.png)
 
-We are giving the +777 access to /var/ in the pre-setup step.
-
-9. 
 pm2 takes care of connecting to the remote server, pulling the code from repo, installing dependencies and then executing
 the "post-deploy" code for running the app.
 
@@ -116,6 +102,8 @@ pm2 deploy ecosystem.config.cjs development setup
 After that only the below command will be executed for each deployment
 
 pm2 deploy ecosystem.config.cjs development
+
+If its successfull, you can run the app on serverip:3000
 
 10. Note that since .env files are not pushed into the repository, they wont be there when cloned into
 remote server. Hence .env files are only for local use.
