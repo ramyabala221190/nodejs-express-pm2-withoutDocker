@@ -21,8 +21,8 @@ module.exports = {
   },],
   deploy : {
     production : {
-       "user" : "azureuser22",
-       "host" : ["4.201.137.36"],
+       "user" : "azureuser",
+       "host" : ["4.201.200.234"],
        "ref"  : "origin/master",
        "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
        "path" : "/var/prod/onlypm2/",
@@ -31,8 +31,8 @@ module.exports = {
        "post-deploy" : "npm run pm2-prod-start"
     },
     development:{
-      "user" : "azureuser22",
-      "host" : ["4.201.137.36"],
+      "user" : "azureuser",
+      "host" : ["4.201.200.234"],
       "ref"  : "origin/master",
       "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
       "path" : "/var/dev/onlypm2/",
