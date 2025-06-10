@@ -8,6 +8,5 @@ app.get('/',(req,res,next)=>{
 
 
 app.listen(process.env.PORT,()=>{
-    console.log(process.env['api-key']);// just logged so that we confirm that the key from the correct file is logged
     console.log(`server in ${process.env.APP_ENV} environment listening on port ${process.env.PORT}`);
 })
