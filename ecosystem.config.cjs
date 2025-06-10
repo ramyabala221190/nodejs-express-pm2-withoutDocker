@@ -22,7 +22,7 @@ module.exports = {
   deploy : {
     production : {
        "user" : "azureuser",
-       "host" : ["4.201.200.234"],
+       "host" : ["191.235.235.158"],
        "ref"  : "origin/master",
        "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
        "path" : "/var/prod/onlypm2/",
@@ -32,7 +32,7 @@ module.exports = {
     },
     development:{
       "user" : "azureuser",
-      "host" : ["4.201.200.234"],
+      "host" : ["20.206.106.236"],
       "ref"  : "origin/master",
       "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
       "path" : "/var/dev/onlypm2/",

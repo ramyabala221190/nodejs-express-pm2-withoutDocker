@@ -12,7 +12,7 @@ Common JS module and not ES6 module.
 In this file,
 
     append_env_to_name: true, // <===== add this line
-    This ensures I can run multiple environments of the application on the same server.
+    This ensures I can run multiple environments of the application on the same server
     This property appends the environment name passed to the --env flag to the name of the app.
     The name of the app comes from "name" field in the same file.
     
