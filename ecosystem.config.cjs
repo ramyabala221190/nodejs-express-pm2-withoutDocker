@@ -26,9 +26,8 @@ module.exports = {
        "ref"  : "origin/master",
        "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
        "path" : "/var/prod/onlypm2/",
-      // "pre-setup":"sudo chmod +777 /var/",
-       "post-setup":"sudo chmod +777 /var/ && node --version && npm --version && pm2 --version && npm install",
-       "post-deploy" : "npm run pm2-prod-start"
+       "pre-setup":"sudo chmod +777 /var/",
+       "post-deploy" : "npm install && npm run pm2-prod-start"
     },
     development:{
       "user" : "azureuser",
@@ -36,9 +35,7 @@ module.exports = {
       "ref"  : "origin/master",
       "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
       "path" : "/var/dev/onlypm2/",
-      //"pre-setup":"sudo chmod +777 /var/",
-     // "post-setup":"sudo chmod +777 /var/ && node --version && npm --version && pm2 --version && npm install",
-       "post-setup":"sudo chmod +777 /var/",
+      "pre-setup":"sudo chmod +777 /var/",
       "post-deploy" : "npm install && npm run pm2-dev-start"
     }
   }
