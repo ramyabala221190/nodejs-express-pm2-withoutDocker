@@ -38,6 +38,7 @@ module.exports = {
       "path" : "/var/dev/onlypm2/",
       //"pre-setup":"sudo chmod +777 /var/",
      // "post-setup":"sudo chmod +777 /var/ && node --version && npm --version && pm2 --version && npm install",
+       "post-setup":"sudo chmod +777 /var/",
       "post-deploy" : "npm install && npm run pm2-dev-start"
     }
   }
