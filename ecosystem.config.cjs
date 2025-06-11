@@ -2,7 +2,7 @@ module.exports = {
   apps : [{
     name:'my-app',
     script: 'src/app.js',
-    append_env_to_name: true, // <===== add this line
+    append_env_to_name: true,
     watch: 'src/',
     env:{
       NODE_ENV:'production'
@@ -26,8 +26,8 @@ module.exports = {
        "ref"  : "origin/master",
        "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
        "path" : "/var/prod/onlypm2/",
-       "pre-setup":"sudo chmod +777 /var/",
-       "post-setup":"node --version && npm --version && pm2 --version && npm install",
+      // "pre-setup":"sudo chmod +777 /var/",
+       "post-setup":"sudo chmod +777 /var/ && node --version && npm --version && pm2 --version && npm install",
        "post-deploy" : "npm run pm2-prod-start"
     },
     development:{
@@ -36,8 +36,8 @@ module.exports = {
       "ref"  : "origin/master",
       "repo" : "https://github.com/ramyabala221190/nodejs-express-pm2-withoutDocker",
       "path" : "/var/dev/onlypm2/",
-      "pre-setup":"sudo chmod +777 /var/",
-      "post-setup":"node --version && npm --version && pm2 --version && npm install",
+      //"pre-setup":"sudo chmod +777 /var/",
+      "post-setup":"sudo chmod +777 /var/ && node --version && npm --version && pm2 --version && npm install",
       "post-deploy" : "npm run pm2-dev-start"
     }
   }
